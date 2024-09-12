@@ -1,0 +1,208 @@
+components: []
+container:
+  properties:
+    html: |
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Healthcare Chatbot</title>
+          <style>
+              /* Basic reset */
+              * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+              }
+
+              body {
+                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100vh;
+                  background-color: #f0f2f5;
+                  margin: 20px;
+              }
+
+              .chat-container {
+                  width: 100%;
+                  max-width: 450px;
+                  height: 600px;
+                  border-radius: 12px;
+                  overflow: hidden;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                  background-color: #ffffff;
+                  display: flex;
+                  flex-direction: column;
+              }
+
+              .chat-header {
+                  padding: 15px;
+                  background-color: #007bff;
+                  color: #ffffff;
+                  font-size: 22px;
+                  font-weight: 600;
+                  border-bottom: 2px solid #0056b3;
+                  text-align: center;
+              }
+
+              .chat-body {
+                  flex: 1;
+                  padding: 15px;
+                  overflow-y: auto;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 15px;
+              }
+
+              .chat-footer {
+                  display: flex;
+                  padding: 15px;
+                  border-top: 1px solid #ddd;
+                  background-color: #f8f9fa;
+              }
+
+              .chat-footer input {
+                  flex: 1;
+                  padding: 12px;
+                  border: 1px solid #ced4da;
+                  border-radius: 20px;
+                  font-size: 16px;
+                  outline: none;
+                  transition: border-color 0.3s ease;
+              }
+
+              .chat-footer input:focus {
+                  border-color: #007bff;
+              }
+
+              .chat-footer button {
+                  padding: 12px 20px;
+                  margin-left: 10px;
+                  border: none;
+                  border-radius: 20px;
+                  background-color: #007bff;
+                  color: #ffffff;
+                  font-size: 16px;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              }
+
+              .chat-footer button:hover {
+                  background-color: #0056b3;
+                  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+              }
+
+              .message {
+                  max-width: 75%;
+                  padding: 12px 18px;
+                  border-radius: 20px;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  position: relative;
+                  display: inline-block;
+                  word-break: break-word;
+              }
+
+              .user-message {
+                  align-self: flex-end;
+                  background-color: #007bff;
+                  color: #ffffff;
+                  border-radius: 20px 20px 0 20px;
+              }
+
+              .bot-response {
+                  align-self: flex-start;
+                  background-color: #e9ecef;
+                  color: #333333;
+                  border-radius: 20px 20px 20px 0;
+              }
+
+              .message::after {
+                  content: '';
+                  position: absolute;
+                  width: 0;
+                  height: 0;
+                  border: 10px solid transparent;
+                  z-index: 1;
+              }
+
+              .user-message::after {
+                  right: -15px;
+                  border-left: 15px solid #007bff;
+                  border-top: 10px solid transparent;
+                  border-bottom: 10px solid transparent;
+                  top: 50%;
+                  transform: translateY(-50%);
+              }
+
+              .bot-response::after {
+                  left: -15px;
+                  border-right: 15px solid #e9ecef;
+                  border-top: 10px solid transparent;
+                  border-bottom: 10px solid transparent;
+                  top: 50%;
+                  transform: translateY(-50%);
+              }
+          </style>
+      </head>
+      <body>
+          <div class="chat-container">
+              <div class="chat-header">Healthcare Chatbot</div>
+              <div class="chat-body" id="chat-body">
+                  <!-- Messages will appear here -->
+              </div>
+              <div class="chat-footer">
+                  <input type="text" id="user-input" placeholder="Type your message...">
+                  <button onclick="sendMessage()">Send</button>
+              </div>
+          </div>
+
+          <script>
+              function sendMessage() {
+                  const userInput = document.getElementById('user-input');
+                  const chatBody = document.getElementById('chat-body');
+                  const message = userInput.value.trim();
+
+                  if (message) {
+                      // Create user message element
+                      const userMessage = document.createElement('div');
+                      userMessage.textContent = message;
+                      userMessage.className = 'message user-message';
+                      chatBody.appendChild(userMessage);
+
+                      // Simulate a bot response
+                      setTimeout(() => {
+                          const botResponse = document.createElement('div');
+                          botResponse.textContent = "I'm here to assist you!";
+                          botResponse.className = 'message bot-response';
+                          chatBody.appendChild(botResponse);
+
+                          // Scroll to bottom
+                          chatBody.scrollTop = chatBody.scrollHeight;
+                      }, 1000); // Simulate delay for bot response
+
+                      // Clear input field
+                      userInput.value = '';
+
+                      // Scroll to bottom
+                      chatBody.scrollTop = chatBody.scrollHeight;
+                  }
+              }
+
+              // Optional: Handle enter key press
+              document.getElementById('user-input').addEventListener('keypress', function(e) {
+                  if (e.key === 'Enter') {
+                      e.preventDefault();
+                      sendMessage();
+                  }
+              });
+          </script>
+      </body>
+      </html>
+    visible: true
+  type: HtmlTemplate
+is_package: true

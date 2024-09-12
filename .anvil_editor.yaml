@@ -1,9 +1,12 @@
 unique_ids:
   assets:
     dashboard.html: XKVHIZR3FE5CS2CNZE64TEXMG6B777QY
+    dr buddy.jfif: '1726177441787520906616824.37213'
+    dr.PNG: '1726177426095866875310651.9143'
     single-column.html: WTAAVE6MQF25K6CYHMN6XLY66AYCOE7X
     theme.css: CXEK4ME7LJDB636UVQ3JHXFSNQ6RM2G5
-  forms: {}
+  forms:
+    Form1: '1726175791541141148817270.95386'
   modules: {}
   scripts: {}
   server_modules: {}

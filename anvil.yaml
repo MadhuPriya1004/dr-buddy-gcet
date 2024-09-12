@@ -1,9 +1,14 @@
 allow_embedding: false
-name: Classic 1
-package_name: Classic_1
+metadata: {description: 'Welcome to Dr. Buddy!  Dr. Buddy is your virtual healthcare companion, designed to assist you with your health and wellness needs around the clock. Whether you’re seeking medical advice, managing symptoms, or simply have questions about your health, Dr. Buddy provides reliable and informative responses to help guide you on your journey to better health.  Key Features:  24/7 Access: Available anytime, anywhere, Dr. Buddy is ready to provide support and answer your questions. Personalized Guidance: Get tailored health tips and information based on your specific needs and concerns. Easy Interaction: Communicate effortlessly with our intuitive chatbot interface, designed to make your experience as smooth as possible. Confidential and Secure: Your privacy is our priority. Dr. Buddy ensures that all your interactions are confidential and secure. At Dr. Buddy, we’re committed to empowering you with the knowledge and tools to make informed health decisions. Start a conversation with Dr. Buddy today and take the first step towards a healthier, more informed you!  Experience the future of healthcare assistance with Dr. Buddy — your trusted health companion.', logo_img: 'asset:dr buddy.jfif', title: 'Dr. Buddy: Your Personal Health Companion'}
+name: Dr Buddy Gcet
+package_name: Dr_Buddy_Gcet
 runtime_options:
   client_version: '3'
   server_spec: {base: python310-standard}
   server_version: python3-sandbox
   version: 2
-services: []
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+startup_form: Form1
